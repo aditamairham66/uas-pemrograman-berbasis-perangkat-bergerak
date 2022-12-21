@@ -2,32 +2,34 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Aplikasi Login</ion-title>
+        <ion-title>Aplikasi Panggilan Telepon</ion-title>
       </ion-toolbar>
     </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Aplikasi Login</ion-title>
+          <ion-title size="large">Aplikasi Panggilan Telepon</ion-title>
         </ion-toolbar>
       </ion-header>
     
       <p>
         <ion-item>
-          <ion-label position="stacked">Username: </ion-label>
-          <ion-input type="text" v-model="username"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Password: </ion-label>
-          <ion-input type="password" v-model="password"></ion-input>
+          <ion-label position="stacked">Nomor yang dihubungi : </ion-label>
+          <ion-input type="number" v-model="phone"></ion-input>
         </ion-item>
       </p>
 
-      <ion-button @click="Login()">Login</ion-button>
+      <ion-button @click="dialCall()">Panggil</ion-button>
 
       <p>    
-        Status 	: {{ status }}
+        NIM 	: 042409096
+      </p>
+      <p>
+        Nama	: Muhammad Lucky Irham Aditama
+      </p>
+      <p>
+        UPBJJ	: SEMARANG
       </p>
     </ion-content>
   </ion-page>
@@ -52,18 +54,12 @@ export default defineComponent({
   },
   data() {
     return {
-      username: null,
-      password: null,
-      status: "Ditolak / Diterima",
+      phone: 0,
     }
   },
   methods: {
-    Login() {
-      if (this.username == this.password) {
-        this.status = 'Diterima'
-      } else {
-        this.status = 'Ditolak'
-      }
+    dialCall() {
+      window.open(`tel:${this.phone}`)
     },
   },
 });
