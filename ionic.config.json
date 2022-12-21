@@ -1,0 +1,7 @@
+{
+  "name": "uas2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
